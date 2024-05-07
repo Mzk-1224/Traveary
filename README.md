@@ -49,3 +49,6 @@ Twitterやインスタグラム などのSNSを使用して宣伝
 ■ 機能の実装方針予定
 ・ransackを利用して、複数検索で公開記事からおすすめスポットを検索できる
 ・他まだ模索中です。
+
+画面遷移図
+Figma：https://www.figma.com/file/usCXmZZaugXe5poWwOVgNG/Travel_master?type=whiteboard&node-id=0%3A1&t=TjLA09H3HrNR4oTZ-1
