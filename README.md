@@ -52,3 +52,5 @@ Twitterやインスタグラム などのSNSを使用して宣伝
 
 画面遷移図
 Figma：https://www.figma.com/file/usCXmZZaugXe5poWwOVgNG/Travel_master?type=whiteboard&node-id=0%3A1&t=TjLA09H3HrNR4oTZ-1
+
+ER図：https://drive.google.com/file/d/1hxPJ8lZiDotWcXVdHypZHwKGuF2cRYxt/view?usp=sharing
