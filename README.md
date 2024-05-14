@@ -1,4 +1,5 @@
 ■サービス概要
+Traveary（トラベアリー）・・・Travel　＋　Diary
 自分が行った旅行の思い出を記録でき、おすすめ場所を他ユーザーと共有できる
 さらに全国47都道府県あるうちの何％制覇したか(将来的には世界規模で)確認することができるサービス
 
@@ -52,5 +53,3 @@ Twitterやインスタグラム などのSNSを使用して宣伝
 
 画面遷移図
 Figma：https://www.figma.com/file/usCXmZZaugXe5poWwOVgNG/Travel_master?type=whiteboard&node-id=0%3A1&t=TjLA09H3HrNR4oTZ-1
-
-ER図：https://drive.google.com/file/d/1hxPJ8lZiDotWcXVdHypZHwKGuF2cRYxt/view?usp=sharing
