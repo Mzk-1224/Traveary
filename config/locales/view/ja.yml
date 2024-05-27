@@ -1,0 +1,35 @@
+ja:
+  defaults: #すべてのコントローラーで使える
+    login: 'ログイン'
+    register: '登録'
+    logout: 'ログアウト'
+    post: '投稿'
+    show: '詳細'
+    edit: '編集'
+    delete: '削除'
+    password_reset: 'パスワードリセット'
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+    label:
+      email: メールアドレス
+      password: パスワード
+  flash_message:
+    logged_in: ログインしました
+    login_failed: ログインに失敗しました
+    logged_out: ログアウトしました
+    registration_complete: ユーザー登録が完了しました
+    registration_failed: ユーザー登録に失敗しました
+    require_login: ログインしてください
+  user_sessions:
+    new:
+      title: ログイン
+      login: ログイン
+      to_register_page: 登録ページへ
+      password_forget: パスワードをお忘れの方はこちら
+  users:
+    new:
+      title: ユーザー登録
+      to_login_page: ログインページへ

@@ -1,24 +1,21 @@
-# README
+■サービス概要 Traveary（トラベアリー）・・・Travel ＋ Diary 自分が行った旅行の思い出を記録でき、おすすめ場所を他ユーザーと共有できる さらに全国47都道府県あるうちの何％制覇したか(将来的には世界規模で)確認することができるサービス
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+■ このサービスへの思い・作りたい理由 元々旅行が好きで1人でも家族でも旅行し都度日記アプリに書き込んでいたが 自分がどれくらい日本を回ったか、別のアプリを使わないといけなかったり 似たようなサービスはあるが、記録ができなかったり、1都道府県に1記事しか記録できなかったりしたので、1つ都道府県で何個でも自由に記録できるサービスが欲しかったため
 
-Things you may want to cover:
+■ ユーザー層について 旅行好きの人、バックパッカーやヒッチハイクする人、旅行する人なら誰でも！
 
-* Ruby version
+■サービスの利用イメージ 旅行行った都道府県を色を潰して自分がどれだけ日本を回ったか、自分の好きな都道府県(頻繁に訪れる)都道府県を確認することができる(1回：薄〜5回以上：濃) 1回の旅行で複数個の記録をつけることができ、記事によって公開、非公開機能つけることで、おすすめの場所、レストランなどを他人と共有することができる
 
-* System dependencies
+■ ユーザーの獲得について Twitterやインスタグラム などのSNSを使用して宣伝
 
-* Configuration
+■ サービスの差別化ポイント・推しポイント 自分が知る中での似たようなサービスでは、都道府県に行った％だけだったり、記録がつけられても 1都道府県に1つまでだったので、それを自由に何個でも記録をつけられたり 公開、非公開機能をつけておすすめの場所を共有できる
 
-* Database creation
+■ 機能候補 【MVPリリース時】 ・会員登録機能 ・ログイン機能・ゲストログイン（閲覧のみ） ・プロフィール機能（編集） ・記事（写真）投稿機能 ・記事（写真）編集機能 ・記事（写真）削除機能 ・カテゴリ投稿機能 ・カテゴリ編集機能 ・カテゴリ削除機能 ・投稿へのいいね・いいね削除機能 ・投稿のブックマーク機能
 
-* Database initialization
+【本リリース】 ・お気に入り機能 ・i18n ・日本だけでなく世界バージョンも作成 ・記事の公開、非公開機能 ・公開記事の都道府県別、国別検索
 
-* How to run the test suite
+■ 機能の実装方針予定 ・ransackを利用して、複数検索で公開記事からおすすめスポットを検索できる ・他まだ模索中です。
 
-* Services (job queues, cache servers, search engines, etc.)
+画面遷移図 Figma：https://www.figma.com/file/usCXmZZaugXe5poWwOVgNG/Travel_master?type=whiteboard&node-id=0%3A1&t=TjLA09H3HrNR4oTZ-1
 
-* Deployment instructions
-
-* ...
+ER図：https://app.diagrams.net/#G1hxPJ8lZiDotWcXVdHypZHwKGuF2cRYxt#%7B%22pageId%22%3A%22R2lEEEUBdFMjLlhIrx00%22%7D
