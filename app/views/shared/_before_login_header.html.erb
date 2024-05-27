@@ -1,0 +1,16 @@
+
+<header class="header">
+  <nav class="nav d-flex justify-content-center align-items-center pt-4">
+    <div class="d-flex align-items-center">
+      <div class='"text-primary'>
+        <li><%= link_to 'ログイン', login_path, class: 'nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' %></li>
+      </div>
+      <div class='mr-8'>
+        <div class="logo">
+          <%= image_tag 'logo2.png', width: 150, height: 150 %>
+        </div>
+      </div>
+        <li><%= link_to '新規登録', new_user_path, class: 'nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' %></li>
+    </div>
+  </nav>
+</header>
