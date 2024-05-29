@@ -1,2 +1,40 @@
-<h1>Boards#show</h1>
-<p>Find me in app/views/boards/show.html.erb</p>
+<%= content_for(:title, @board.title) %>
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h2 class="d-inline" style='margin-left: 20px'><%= @board.title %></h2>
+      <!-- 掲示板内容 -->
+      <article class="card">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col-md-3'>
+              <div class="image-gallery">
+              <% @images.each_slice(5) do |row| %>
+                <div class="image-row">
+                  <% row.each do |image| %>
+                    <div class="image-container">
+                      <%= image_tag image.url, class: "image" %>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            </div>
+                <div class='d-flex justify-content-end'>
+                  <%= render 'crud_menus', board: @board if current_user.own?(@board) %>
+                </div>
+            </div>
+          </div>
+            <div class='col-md-8' style='margin: 0 20px'>
+              <p><%= simple_format(@board.body) %></p>
+              <ul class="list-inline">
+                <li class="list-inline-item"><%= "by #{@board.user.user_name}" %></li>
+                <li class="list-inline-item"><%= l @board.created_at, format: :long %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>

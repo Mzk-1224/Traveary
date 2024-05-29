@@ -1,20 +1,16 @@
-<%= stylesheet_link_tag 'shared/header' %>
+
 <header class="header">
-  <nav class="nav">
-    <div class="container">
-      <ul class="nav-links left">
-        <li><%= link_to 'aaa', '#', class: 'nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' %></li>
-        <li>|</li>
-        <li><%= link_to '掲示板', '#', class: 'nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' %></li>
-      </ul>
-      <div class='logo'>
-        <%= image_tag 'logo2.png', width: 150, height: 150 %>
+  <nav class="nav d-flex justify-content-center align-items-center pt-4">
+    <div class="d-flex align-items-center">
+      <div class='"text-primary'>
+        <li><%= link_to '掲示板一覧', root_path, class: 'nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' %></li>
       </div>
-      <ul class="nav-links right">
-        <li><%= link_to '新規投稿', '#', class: 'nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' %></li>
-        <li>|</li>
-        <li><%= link_to 'ログアウト', logout_path, class: 'nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover', data: { turbo_method: :delete }  %></li>
-      </ul>
+      <div class='mr-8'>
+        <div class="logo">
+          <%= image_tag 'logo2.png', width: 150, height: 150 %>
+        </div>
+      </div>
+        <li><%= link_to '新規投稿', new_board_path, class: 'nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' %></li>
     </div>
   </nav>
 </header>

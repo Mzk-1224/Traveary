@@ -33,3 +33,6 @@ ja:
     new:
       title: ユーザー登録
       to_login_page: ログインページへ
+  boards:
+    new:
+      title: 新規投稿
