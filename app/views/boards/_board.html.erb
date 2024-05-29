@@ -1,0 +1,36 @@
+<% @boards.each do |board| %>
+  <div class="col-sm-12 col-lg-4 mb-3">
+    <div id="board-id-<%= board.id %>">
+      <div class="card">
+        <% board.images.each do |image| %>
+          <%= image_tag image.url %>
+        <% end %>
+        <div class="card-body">
+          <div class="d-flex">
+            <h4 class="card-title">
+              <%= link_to board.title, board_path(board) %>
+            </h4>
+            <div class="ms-auto">
+              <% if current_user.own?(board) %>
+                <%= render 'crud_menus', board: board %>
+              <% else %>
+                <%= render 'bookmark_button', board: board %>
+              <% end %>
+            </div>
+          </div>
+          <ul class="list-inline">
+            <%= content_tag :li do %>
+              <i class="bi bi-person"></i>
+              <%= board.user.user_name %>
+            <% end %>
+            <%= content_tag :li do %>
+              <i class="bi bi-calendar"></i>
+              <%= l board.created_at, format: :long %>
+            <% end %>
+          </ul>
+          <%= board.body %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

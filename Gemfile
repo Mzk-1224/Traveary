@@ -52,6 +52,9 @@ gem "bootsnap", require: false
   gem 'kaminari'
   gem 'sass-rails', '>= 6'
   gem 'bootstrap5-kaminari-views'
+  gem 'carrierwave'
+  gem 'mini_magick'
+  gem 'jquery-rails'
   
 
 group :development, :test do
