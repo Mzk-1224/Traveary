@@ -1,4 +1,9 @@
 <%= form_with model: board, local: true do |f| %>
+  <div class="form-group mt-4 text-black-50" style="font-family: Kiwi Maru;">
+    <%= f.label :prefecture_id, '旅行した都道府県' %>
+    <%= f.collection_select :prefecture_id, @prefectures, :id, :name %>
+  </div>
+
   <div class="form-group mt-2 text-black-50">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
@@ -9,15 +14,15 @@
     <%= f.text_area :body, class: 'form-control', rows: 10 %>
   </div>
 
-  <div class="form-group mt-4">
-    <%= f.fields_for :images do |m| %>
-      <%= m.file_field :image, multiple: true, name: "images[image][]" %>
-      <%= hidden_field :images, :post_id, value: @board.id %>
-    <% end %>
+  <div class="form-group mt-4" style="font-family: Kiwi Maru;">
+    <div class="image-new__field__uploader">
+      <%= f.fields_for :images do |image| %>
+        <%= image.file_field :image, multipart: true, class: "hidden image_upload" %>
+      <% end %>
+    </div>
   </div>
-  <span class="upload_limit mt-2 text-black-50">最大10枚までアップロードできます</span>
 
-  <div class="form-group mt-4 mb-4 d-flex justify-content-between">
+  <div class="form-group mt-4 mb-4 d-flex justify-content-between" style="font-family: Kiwi Maru;">
     <%= f.submit "登録", class: 'btn btn-primary btn-custom' %>
   </div>
 <% end %>

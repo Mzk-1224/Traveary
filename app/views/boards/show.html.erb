@@ -7,27 +7,15 @@
       <article class="card">
         <div class="card-body">
           <div class='row'>
-            <div class='col-md-3'>
-              <div class="image-gallery">
-              <% @images.each_slice(5) do |row| %>
-                <div class="image-row">
-                  <% row.each do |image| %>
-                    <div class="image-container">
-                      <%= image_tag image.url, class: "image" %>
-                    </div>
-                  <% end %>
-                </div>
-              <% end %>
+            <div class='col-md-6 offset-md-3 text-center'> <!-- 中央揃え -->
+              <%= image_tag @board.images.first.image.url, class: "card-img-top img-fluid", size: '300x200' %>
             </div>
+            <div class='d-flex justify-content-end'>
+              <%= render 'crud_menus', board: @board if current_user.own?(@board) %>
             </div>
-                <div class='d-flex justify-content-end'>
-                  <%= render 'crud_menus', board: @board if current_user.own?(@board) %>
-                </div>
-            </div>
-          </div>
-            <div class='col-md-8' style='margin: 0 20px'>
+            <div class='col-md-6' style='margin: 10px'>
               <p><%= simple_format(@board.body) %></p>
-              <ul class="list-inline">
+              <ul class="list-inline" style="padding-top: 20px">
                 <li class="list-inline-item"><%= "by #{@board.user.user_name}" %></li>
                 <li class="list-inline-item"><%= l @board.created_at, format: :long %></li>
               </ul>

@@ -1,2 +1,11 @@
 @import 'bootstrap/dist/css/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+@import 'board';
+@import 'prefecture';
+@import 'boards/show';
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
+
+
+* {
+  font-family: "Kiwi Maru", serif;
+}

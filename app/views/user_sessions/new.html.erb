@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class=" col-md-10 col-lg-8 mx-auto">
+    <div class=" col-md-10 col-lg-8 mx-auto" style="font-family: Kiwi Maru;">
       <h2><%= t('.title') %></h2>
-      <%= form_with url: login_path do |f| %>
+      <%= form_with url: login_path, local: true do |f| %>
         <div class="mb-3">
           <%= f.label :email %>
           <%= f.email_field :email, class: "form-control" %>
