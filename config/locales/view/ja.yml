@@ -19,10 +19,19 @@ ja:
   flash_message:
     logged_in: ログインしました
     login_failed: ログインに失敗しました
-    logged_out: ログアウトしました
+    logged_out: ログアウトしました！ またお待ちしております！
     registration_complete: ユーザー登録が完了しました
     registration_failed: ユーザー登録に失敗しました
     require_login: ログインしてください
+    no_result: 掲示板がありません
+    created: "%{item}を作成しました"
+    not_created: "%{item}を作成出来ませんでした"
+    comment_created: コメントを作成しました
+    comment_not_created: コメントを作成出来ませんでした
+    updated: 掲示板を更新しました
+    not_updated: 掲示板を更新出来ませんでした
+    deleted: 掲示板を削除しました
+    delete_confirm: 削除しますか？
   user_sessions:
     new:
       title: ログイン

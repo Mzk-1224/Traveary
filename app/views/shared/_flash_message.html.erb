@@ -1,0 +1,7 @@
+<div class="row mt-4">
+<% flash.each do |message_type, message| %>
+  <div class="alert <%= message_type == 'notice' ? 'alert-info' : 'alert-danger' %> text-center">
+    <%= message %>
+  </div>
+<% end %>
+</div>

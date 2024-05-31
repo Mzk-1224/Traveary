@@ -7,9 +7,9 @@
       <article class="card">
         <div class="card-body">
           <div class='row'>
-            <% if @board.images.any? && @board.images.first.image.present? %>
+            <% if @board.board_image.present? %>
               <div class='col-md-6 offset-md-3 text-center'> <!-- 中央揃え -->
-                <%= image_tag @board.images.first.image.url, class: "card-img-top img-fluid", size: '300x200' %>
+                <%= image_tag @board.board_image.url, class: "card-img-top img-fluid", size: '300x200' %>
               </div>
             <% end %>
             <div class='d-flex justify-content-end'>

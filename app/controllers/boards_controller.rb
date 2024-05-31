@@ -5,38 +5,31 @@ class BoardsController < ApplicationController
 
   def index
     if current_user
-      @boards = Board.all.includes(:user, :images).order(created_at: :desc).page(params[:page])
+      @boards = Board.all.includes(:user).order(created_at: :desc).page(params[:page])
       @visited_prefectures_count = current_user.visited_prefectures.count
-      if @boards.present?
-        @boards.each do |board|
-          board.images.build
-        end
-      end
     else
-      flash[:alert] = "You need to sign in or sign up before continuing."
+      flash[:alert] = "ログインしてください"
       redirect_to login_path
     end
   end
 
   def show
     @board = Board.find(params[:id])
-    @images = @board.images
   end
 
   def new
     @board = Board.new
-    images = @board.images.build # 画像オブジェクトをビルド
     @prefectures = Prefecture.all
   end
-  
+
   def create
     @board = current_user.boards.build(board_params)
-    @board.images.each { |image| image.board_id = @board.id }
+    @prefectures = Prefecture.all
     if @board.save
-      flash[:success] = I18n.t('flash_messages.created', item: Board.model_name.human)
+      flash[:notice] = I18n.t('flash_message.created', item: Board.model_name.human)
       redirect_to boards_path
     else
-      flash.now[:danger] = I18n.t('flash_messages.not_created', item: Board.model_name.human)
+      flash.now[:danger] = I18n.t('flash_message.not_created', item: Board.model_name.human)
       render :new, status: :unprocessable_entity
     end
   end
@@ -46,17 +39,17 @@ class BoardsController < ApplicationController
 
   def update
     if @board.update(board_params)
-      flash[:success] = I18n.t('flash_messages.updated', item: Board.model_name.human)
+      flash[:notice] = I18n.t('flash_message.updated', item: Board.model_name.human)
       redirect_to root_path
     else
-      flash.now[:danger] = I18n.t('flash_messages.not_updated', item: Board.model_name.human)
+      flash.now[:danger] = I18n.t('flash_message.not_updated', item: Board.model_name.human)
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @board.destroy
-    flash[:success] = I18n.t('flash_messages.deleted', item: Board.model_name.human)
+    flash[:notice] = I18n.t('flash_message.deleted', item: Board.model_name.human)
     redirect_to boards_path
   end
 
@@ -67,7 +60,7 @@ class BoardsController < ApplicationController
   end
 
   def board_params
-    params.require(:board).permit(:title, :body, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:board).permit(:title, :body, :prefecture_id, :board_image, :board_image_cache)
   end
 
   def set_prefectures
