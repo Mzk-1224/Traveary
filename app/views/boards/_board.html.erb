@@ -1,36 +1,62 @@
-<% @boards.each do |board| %>
-  <div class="col-sm-12 col-lg-4 mb-3">
-    <div id="board-id-<%= board.id %>">
-      <div class="card">
-        <% board.images.each do |image| %>
-          <%= image_tag image.url %>
+<div class="col-sm-12 col-lg-4 mb-3">
+  <div id="board-id-<%= board.id %>">
+    <div class="card">
+      <div class="card-images d-flex justify-content-center align-items-center" style="height: 300px;">
+        <% if board.images.present? %>
+          <% first_image = board.images.first %>
+            <% if first_image.image.present? %>
+              <%= image_tag first_image.image.url, class: 'img-fluid', size: '260x195' %>
+            <% else %>
+              <%= image_tag 'no_image.png', class: 'img-fluid', size: '120x60' %>
+          <% end %>
         <% end %>
-        <div class="card-body">
-          <div class="d-flex">
-            <h4 class="card-title">
-              <%= link_to board.title, board_path(board) %>
-            </h4>
-            <div class="ms-auto">
-              <% if current_user.own?(board) %>
-                <%= render 'crud_menus', board: board %>
-              <% else %>
-                <%= render 'bookmark_button', board: board %>
-              <% end %>
-            </div>
+      </div>
+      <div class="card-body" style="font-family: Kiwi Maru;">
+        <div class="d-flex">
+          <h4 class="card-title">
+            <%= link_to board.title, board_path(board) %>
+          </h4>
+          <div class="ms-auto">
+            <% if current_user.own?(board) %>
+              <%= render 'crud_menus', board: board %>
+            <% end %>
           </div>
-          <ul class="list-inline">
+        </div>
+        <ul class="list-inline">
+          <% if board.prefecture.present? %>
             <%= content_tag :li do %>
-              <i class="bi bi-person"></i>
-              <%= board.user.user_name %>
+              <i class="bi bi-airplane"></i>
+              <%= board.prefecture.name %>
             <% end %>
-            <%= content_tag :li do %>
-              <i class="bi bi-calendar"></i>
-              <%= l board.created_at, format: :long %>
-            <% end %>
-          </ul>
-          <%= board.body %>
+          <% end %>
+          <%= content_tag :li do %>
+            <i class="bi bi-person"></i>
+            <%= board.user.user_name %>
+          <% end %>
+          <%= content_tag :li do %>
+            <i class="bi bi-calendar"></i>
+            <%= l board.created_at, format: :long %>
+          <% end %>
+        </ul>
+        <div id="board-body-<%= board.id %>">
+          <%= truncate(board.body, length: 25) %>
         </div>
       </div>
     </div>
   </div>
-<% end %>
+</div>
+
+<script>
+  function showMore(boardId) {
+      var boardBody = document.getElementById("board-body-" + boardId);
+      var moreBtn = document.querySelector("#board-id-" + boardId + " .more-btn");
+
+      if (moreBtn.textContent === "もっと見る") {
+          boardBody.innerHTML = "<%= j(board.body) %>"; // 完全なテキストを表示
+          moreBtn.textContent = "もっと少なく見る";
+      } else {
+          boardBody.innerHTML = "<%= j(truncate(board.body, length: 150)) %>"; // 制限されたテキストを表示
+          moreBtn.textContent = "もっと見る";
+      }
+  }
+</script>

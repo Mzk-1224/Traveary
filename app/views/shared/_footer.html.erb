@@ -1,9 +1,17 @@
-<footer id='footer' class='footer-bottom'>
-  <div class='container'>
+<footer id='footer' class='footer-bottom' style="background-color: #bbe2f1; display: flex; justify-content: center; align-items: center; height: 50px;">
+  <div class='container' style="font-family: Kiwi Maru;">
     <div class='row'>
-      <div class='col-sm-6 col-12 text-center'>
+      <div class='col-sm-6 col-12 text-black-50'>
         <div class='copyright'>
-          <p>Copyright © Traveary</p>
+          <p style="margin: 0;">Copyright © Traveary</p>
+        </div>
+      </div>
+      <div class='col-sm-6 col-12' style="text-align: right; display: flex; align-items: center; justify-content: flex-end;">
+        <div>
+          <%= link_to '利用規約', static_pages_terms_of_service_path, class: 'nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' %>
+        </div>
+        <div style="margin-left: 20px;">
+          <%= link_to 'プライバシーポリシー', static_pages_privacy_policy_path, class: 'nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' %>
         </div>
       </div>
     </div>

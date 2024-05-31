@@ -36,3 +36,5 @@ ja:
   boards:
     new:
       title: 新規投稿
+    index:
+      no_result: 投稿がありません

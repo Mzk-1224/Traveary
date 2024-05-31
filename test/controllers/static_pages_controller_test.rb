@@ -1,8 +1,13 @@
 require "test_helper"
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
-  test "should get top" do
-    get static_pages_top_url
+  test "should get terms_of_service" do
+    get static_pages_terms_of_service_url
+    assert_response :success
+  end
+
+  test "should get privacy_policy" do
+    get static_pages_privacy_policy_url
     assert_response :success
   end
 end

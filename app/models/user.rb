@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
   has_many :boards, dependent: :destroy
+  has_many :visited_prefectures, -> { distinct }, through: :boards, source: :prefecture
 
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
