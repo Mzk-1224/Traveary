@@ -1,15 +1,17 @@
-<%= content_for(:title, @board.title) %>
-<div class="container pt-5">
-  <div class="row mb-3">
+<% content_for(:title, @board.title) %>
+<div class="container">
+  <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <h2 class="d-inline" style='margin-left: 20px'><%= @board.title %></h2>
       <!-- 掲示板内容 -->
       <article class="card">
         <div class="card-body">
           <div class='row'>
-            <div class='col-md-6 offset-md-3 text-center'> <!-- 中央揃え -->
-              <%= image_tag @board.images.first.image.url, class: "card-img-top img-fluid", size: '300x200' %>
-            </div>
+            <% if @board.images.any? && @board.images.first.image.present? %>
+              <div class='col-md-6 offset-md-3 text-center'> <!-- 中央揃え -->
+                <%= image_tag @board.images.first.image.url, class: "card-img-top img-fluid", size: '300x200' %>
+              </div>
+            <% end %>
             <div class='d-flex justify-content-end'>
               <%= render 'crud_menus', board: @board if current_user.own?(@board) %>
             </div>
