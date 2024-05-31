@@ -2,13 +2,10 @@
   <div id="board-id-<%= board.id %>">
     <div class="card">
       <div class="card-images d-flex justify-content-center align-items-center" style="height: 300px;">
-        <% if board.images.present? %>
-          <% first_image = board.images.first %>
-            <% if first_image.image.present? %>
-              <%= image_tag first_image.image.url, class: 'img-fluid', size: '260x195' %>
-            <% else %>
-              <%= image_tag 'no_image.png', class: 'img-fluid', size: '120x60' %>
-          <% end %>
+        <% if board.board_image.present? %>
+          <%= image_tag board.board_image_url, class: 'card-img-top' %>
+        <% else %>
+          <%= image_tag 'no_image.png', class: 'img-fluid', size: '120x60' %>
         <% end %>
       </div>
       <div class="card-body" style="font-family: Kiwi Maru;">

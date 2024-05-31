@@ -1,22 +1,22 @@
 default: &default
-  adapter: mysql2
-  encoding: utf8mb4
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: password
   host: db
+  username: postgres
+  password: password
 
 development:
   <<: *default
-  database: Traveary_development
-  host: db
+  database: traveary_development
 
 test:
   <<: *default
-  database: Traveary_test
+  database: traveary_test
+
 
 production:
   <<: *default
-  database: Traveary_production
-  username: Traveary
+  database: traveary_production
+  username: traveary
   password: <%= ENV["TRAVEARY_DATABASE_PASSWORD"] %>

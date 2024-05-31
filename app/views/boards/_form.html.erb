@@ -14,32 +14,19 @@
     <%= f.text_area :body, class: 'form-control', rows: 10 %>
   </div>
 
-  <div class="form-group mt-4" style="font-family: Kiwi Maru;">
-    <div class="image-new__field__uploader">
-      <%= f.fields_for :images do |image| %>
-        <% if image.object.persisted? %>
-          <div class="existing-image">
-            <%= image_tag image.object.image.url, class: 'img-fluid', size: '260x195' %>
-            <%= image.check_box :_destroy %> 削除
+    <div class="row mb-3">
+      <%= f.label :board_image %>
+      <%= f.file_field :board_image, multipart: true, class: 'form-control', accept: 'image/*' %>
+      <%= f.hidden_field :board_image_cache %>
+    </div>
+    <div class='col-md-3'>
+      <div class="row mb-3">
+        <% if @board.board_image.present? %>
+          <div class='col-md-6 offset-md-3 text-center'>
+            <%= image_tag @board.board_image.url, class: "card-img-top img-fluid", size: '300x200' %>
           </div>
         <% end %>
-        <ul id="previews">
-          <li class="input">
-            <label class="upload-label">
-              <div class="upload-label__text">
-                <p>クリックしてファイルをアップロード</p>
-              </div>
-              <div class="input-area">
-                <%= image.file_field :image, multiple: true, class: "hidden image_upload" %>
-              </div>
-            </label>
-          </li>
-        </ul>
-      <% end %>
+      </div>
     </div>
-  </div>
-
-  <div class="form-group mt-4 mb-4 d-flex justify-content-between" style="font-family: Kiwi Maru;">
-    <%= f.submit "登録", class: 'btn btn-primary btn-custom' %>
-  </div>
+    <%= f.submit class: 'btn btn-primary mb-4' %>
 <% end %>
