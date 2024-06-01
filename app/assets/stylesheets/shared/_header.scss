@@ -1,14 +1,3 @@
-
-/* 他のスタイル */
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80px;
-  background-color: #f8f8f8;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 .nav {
   display: flex;
   align-items: center;
@@ -44,15 +33,9 @@
 }
 
 .logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 130px;
-  height: 100px;
-}
-
-.logo img {
   width: auto;
   max-width: 100%;
   height: auto;
+  margin-left: auto;
+  margin-right: auto;
 }

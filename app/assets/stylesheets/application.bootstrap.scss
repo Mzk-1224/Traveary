@@ -3,9 +3,12 @@
 @import 'board';
 @import 'prefecture';
 @import 'boards/show';
+@import 'boards/index';
+@import 'shared/header';
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
 
 
 * {
   font-family: "Kiwi Maru", serif;
+  color: #808080;
 }
