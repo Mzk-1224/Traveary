@@ -18,5 +18,5 @@ test:
 production:
   <<: *default
   database: traveary_production
-  username: traveary
-  password: <%= ENV["TRAVEARY_DATABASE_PASSWORD"] %>
+  #username: <%= ENV["TRAVEARY_DATABASE_USERNAME"] %>
+  #password: <%= ENV["TRAVEARY_DATABASE_PASSWORD"] %>

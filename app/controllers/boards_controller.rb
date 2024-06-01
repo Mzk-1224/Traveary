@@ -1,16 +1,11 @@
 class BoardsController < ApplicationController
-  skip_before_action :require_login, only: [:index]
+  before_action :require_login, except: [:show, :index]
   before_action :set_board, only: [:edit, :update, :destroy]
   before_action :set_prefectures, only: [:new, :edit]
 
   def index
-    if current_user
-      @boards = Board.all.includes(:user).order(created_at: :desc).page(params[:page])
-      @visited_prefectures_count = current_user.visited_prefectures.count
-    else
-      flash[:alert] = "ログインしてください"
-      redirect_to login_path
-    end
+      @boards = Board.all.includes(:user).order(created_at: :desc).page(params[:page]).per(9)
+      @visited_prefectures_count = current_user&.visited_prefectures&.count
   end
 
   def show
@@ -54,6 +49,13 @@ class BoardsController < ApplicationController
   end
 
   private
+
+  def require_login
+    unless logged_in?
+      flash[:notice] = "ログインしてください"
+      redirect_to login_path
+    end
+  end
 
   def set_board
     @board = current_user.boards.find(params[:id])

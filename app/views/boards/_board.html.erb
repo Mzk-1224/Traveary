@@ -14,7 +14,7 @@
             <%= link_to board.title, board_path(board) %>
           </h4>
           <div class="ms-auto">
-            <% if current_user.own?(board) %>
+            <% if current_user && current_user.own?(board) %>
               <%= render 'crud_menus', board: board %>
             <% end %>
           </div>

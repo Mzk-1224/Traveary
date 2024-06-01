@@ -1,7 +1,12 @@
 <div class="container pt-5">
   <div class="row justify-content-center">
     <div class="col-12">
-      <%= image_tag 'top.png', class: 'img-fluid mx-auto d-block', width: 1200, height: 800 %>
+      <div class='top-wrapper'>
+        <div class='top-inner-text'>
+          <h1>Travel + Diary</h1>
+        </div>
+          <p class='top-inner-comment'>- 旅の思い出をとっておく場所 -</p>
+      </div>
     </div>
   </div>
 
@@ -20,6 +25,7 @@
           <p class="text-center"><%= t('.no_result') %></p>
         <% end %>
       </div>
+      <%= paginate @boards, theme: 'bootstrap-5' %>
     </div>
   </div>
 </div>

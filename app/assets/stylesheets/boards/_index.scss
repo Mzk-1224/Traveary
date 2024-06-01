@@ -1,0 +1,47 @@
+.top-wrapper {
+  position: relative;
+  overflow: hidden; /* 画像をはみ出さないようにする */
+  background-image: url("top.png");
+  height: calc(100vh - 134px);
+  position: relative;
+  background-position: center;
+  border-radius: 30px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.195); /* 黒色の半透明 */
+    z-index: 1; /* テキストよりも手前に表示するためにz-indexを設定 */
+    border-radius: 30px; /* 画像と同じ角丸にする */
+  }
+
+  .top-inner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+    z-index: 2; /* テキストを手前に表示するためにz-indexを設定 */
+
+    @media screen and (max-width: 767px) {
+      font-size: 2.0rem;
+    }
+  }
+
+  .top-inner-comment {
+    position: absolute;
+    bottom: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1rem;
+    z-index: 2;
+  }
+}
